@@ -56,4 +56,19 @@ class TestRoom < MiniTest::Test
       assert_equal(3, @room.total_guests)
   end
 
+  def test_total_guests_in_room__no_guests
+    room = Room.new("Room02", 8)
+    assert_equal(0, room.total_guests)
+  end
+
+  def test_guests_leave_room_all_guests_leave
+    assert_equal(0, @room.guests_leave_room)
+  end
+
+  def test_person_leave_room_single_guest
+    assert_equal([@guest1, @guest2], @room.person_leave_room)
+  end
+
+
+
 end

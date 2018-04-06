@@ -36,11 +36,27 @@ class Room
     end
   end
 
-  def total_guests
-    return @guests.count
+  # def total_guests
+  #   return @guests.count
+  # end
+
+  def total_guests()
+    if @guests.count != nil
+      return @guests.count
+    else
+      return "room is empty"
+    end
   end
 
-  
+  def guests_leave_room
+    @guests.clear.count
+  end
+
+  def person_leave_room
+    @guests.pop
+    return @guests
+  end
+
 
 
 
