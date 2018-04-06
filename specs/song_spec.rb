@@ -11,11 +11,15 @@ class TestSong < MiniTest::Test
   end
 
   def test_artist_name
-    assert_equal("Beatles", @song1.artist_name)
+    assert_equal("Beatles", @song1.artist)
   end
 
   def test_song_name
-    assert_equal("Under The Bridge", @song2.song_name)
+    assert_equal("Under The Bridge", @song2.track)
+  end
+
+  def test_play_song
+    assert_equal("music is playing", @song3.play_song)
   end
 
 end
