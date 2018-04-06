@@ -1,12 +1,16 @@
 class Room
 
-  attr_reader :name, :capacity
+  attr_reader :name
 
   def initialize(name, capacity)
     @name = name
-    @capacity = 8
+    @capacity = capacity
     @songs = []
     @guests = []
+  end
+
+  def capacity
+    return @capacity
   end
 
   def add_song(song)
@@ -56,6 +60,17 @@ class Room
     @guests.pop
     return @guests
   end
+#if the capacity is greater than the amount of guests then you can add the
+#guests to the room. Else you cannot add a guest to the room
+
+  def fill_room(guets_in_room)
+    if guests_in_room < total_guests
+      return "You can have this room"
+    end
+  end
+
+
+
 
 
 
