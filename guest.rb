@@ -4,7 +4,11 @@ class Guest
 
 def initialize(name, wallet)
   @name = name
-  @wallet = wallet 
+  @wallet = wallet
+end
+
+def rent_room(room)
+  @wallet -= room.cost
 end
 
 end

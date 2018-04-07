@@ -6,8 +6,8 @@ require_relative("../room.rb")
 
 class TestRoom < MiniTest::Test
   def setup()
-    @room = Room.new("Room01", 8)
-    @room2 = Room.new("Room02", 2)
+    @room = Room.new("Room01", 8, 5)
+    # @room2 = Room.new("Room02", 2, 5)
     @song1 = Song.new("Beatles", "Hey Jude")
     @song2 = Song.new("Blur", "Song 2")
     @song3 = Song.new("The Streets", "Dry Your Eyes Mate")
@@ -28,8 +28,16 @@ class TestRoom < MiniTest::Test
     assert_equal("Room01", @room.name)
   end
 
+  def test_till_balance
+    assert_equal(100, @room.till_balance)
+  end
+
+  def test_cost
+    assert_equal(5, @room.cost)
+  end
+
   def test_capacity
-    assert_equal(2, @room2.capacity)
+    assert_equal(8, @room.capacity)
   end
 
   def test_add_song
@@ -58,7 +66,7 @@ class TestRoom < MiniTest::Test
   end
 
   def test_total_guests_in_room__no_guests
-    room = Room.new("Room02", 8)
+    room = Room.new("Room02", 8, 5)
     assert_equal(0, room.total_guests)
   end
 
@@ -74,6 +82,24 @@ class TestRoom < MiniTest::Test
     result = @room.add_guest(@guest4)
     assert_equal([@guest1, @guest2, @guest3, @guest4], result)
   end
+
+  def test_sell_room
+    @room.sell_room(@room, @guest1)
+    assert_equal(105, @room.till_balance)
+  end
+
+  def test_sell_room_no_money
+    result = @room.sell_room(@room, @guest4)
+    assert_equal("no", result)
+  end
+
+  # def test_sell_drink
+  #     @pub.sell_drink(@drink1, @customer1)
+  #     assert_equal(103, @pub.till_balance)
+  #   end
+
+
+
 
 
 end
