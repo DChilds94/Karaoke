@@ -35,10 +35,5 @@ class TestGuest < MiniTest::Test
     @guest1.rent_room(@room)
     assert_equal(45, @guest1.wallet)
   end
-
-  # def test_buy_a_drink
-  #   @customer2.buy_a_drink(@drink1)
-  #   assert_equal(27.00, @customer2.wallet)
-  # end
-
+  
 end

@@ -93,13 +93,4 @@ class TestRoom < MiniTest::Test
     assert_equal("no", result)
   end
 
-  # def test_sell_drink
-  #     @pub.sell_drink(@drink1, @customer1)
-  #     assert_equal(103, @pub.till_balance)
-  #   end
-
-
-
-
-
 end
